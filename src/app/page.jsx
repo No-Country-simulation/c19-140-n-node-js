@@ -1,12 +1,12 @@
 import Background from "@/components/Background.jsx";
-
+import FondoBlanco from "@/components/FondoBlanco.jsx";
 export default function Home() {
    return (
       <main className="relative h-screen">
          <Background src={`/bgPrincipal.jpg`} />
          <div className="absolute top-0 left-0 w-full h-full">
-             {/* Fondo blanco transparente */}
-          {/*  <div className="absolute top-0 right-0 h-full w-[42%] bg-white bg-opacity-50 flex items-center justify-center">*/}
+         <FondoBlanco />
+            
             <div className="absolute top-0 right-0 h-full w-[42%] flex items-center justify-center">
                <div className="text-center px-4 py-8">
                   <h3 className="text-4xl lg:text-5xl text-purple-500 text-opacity-80">
@@ -38,6 +38,7 @@ export default function Home() {
                         Tengo una lista creada
                      </a>
                   </div>
+                  
                </div>
             </div>
          </div>
