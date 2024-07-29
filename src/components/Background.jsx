@@ -26,6 +26,7 @@ export default function Background({ src }) {
                   onLoadingComplete={() => setImageLoaded(true)}
                />
             </motion.div>
+            <div className="absolute top-0 right-0 h-full w-[42%] bg-white bg-opacity-50 flex items-center justify-center"></div>
          </div>
       </div>
    );

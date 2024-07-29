@@ -5,7 +5,9 @@ export default function Home() {
       <main className="relative h-screen">
          <Background src={`/bgPrincipal.jpg`} />
          <div className="absolute top-0 left-0 w-full h-full">
-            <div className="absolute top-0 right-0 h-full w-[42%] bg-white bg-opacity-50 flex items-center justify-center">
+             {/* Fondo blanco transparente */}
+          {/*  <div className="absolute top-0 right-0 h-full w-[42%] bg-white bg-opacity-50 flex items-center justify-center">*/}
+            <div className="absolute top-0 right-0 h-full w-[42%] flex items-center justify-center">
                <div className="text-center px-4 py-8">
                   <h3 className="text-4xl lg:text-5xl text-purple-500 text-opacity-80">
                      <div className="font-bold">Conéctate</div>
