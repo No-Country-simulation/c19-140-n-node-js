@@ -3,6 +3,61 @@ import React, { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const CustomAudioPlayer = ( { playlist } ) => {
+  
+  const songlist = playlist.songs;
+
+  if (!playlist.songs || playlist.songs.length === 0) {
+    return (
+      <div className='w-4/5 h-2/5 bg-[#6d58a5] bg-opacity-[0.7] p-4 rounded-md flex flex-row space-x-6 justify-center text-white'>
+        
+        <div className='w-1/5 bg-[#c4b5fd] rounded relative'>
+            <Image
+            src={'/thumbnail.jpg'}
+            alt="Image"
+            fill
+            style={{ objectFit: 'cover', objectPosition: 'center' }}
+            className='rounded'
+            />
+        </div>
+
+        <div  className='w-2/3 rounded grid grid-rows-3'>
+          <div className="text-white py-4">Aún no hay canciones cargadas.</div>
+          <div className="w-full text-center my-2"> 
+            <div className="w-full h-2.5 bg-[#e0e0e0] rounded-md cursor-pointer relative">
+              <div className="h-full bg-[#f83a47] rounded-md"></div>
+            </div>
+
+            <div className="flex justify-between">
+              <span className='text-sm'>00:00</span>
+
+              <div className='py-2.5 flex flex-row space-x-6 justify-center'>
+
+                <button>
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="size-7">
+                  <path d="m16 7-7 5 7 5zm-7 5V7H7v10h2z"></path>
+                  </svg>
+                </button>
+
+                <button>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5V18M15 7.5V18M3 16.811V8.69c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061A1.125 1.125 0 0 1 3 16.811Z" />
+                  </svg>
+                </button>
+
+                <button>
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="size-7">
+                  <path d="M7 7v10l7-5zm9 10V7h-2v10z"></path>                
+                  </svg>
+                </button>
+
+              </div>
+              <span className='text-sm'>00:00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   const audioRef = useRef(null);
   const progressRef = useRef(null);
@@ -12,8 +67,6 @@ const CustomAudioPlayer = ( { playlist } ) => {
   const [duration, setDuration] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [volume, setVolume] = useState(1);
-
-  const songlist = playlist.songs;
 
   const togglePlayPause = () => {
     if (isPlaying) {
@@ -38,16 +91,18 @@ const CustomAudioPlayer = ( { playlist } ) => {
 
   useEffect(() => {
     const updateProgress = () => {
-      const duration = audioRef.current.duration;
-      const currentTime = audioRef.current.currentTime;
-      const progressPercentage = (currentTime / duration) * 100;
-      setProgress(progressPercentage);
-      setCurrentTime(currentTime);
-      setDuration(duration);
+      if (audioRef.current) {
+        const duration = audioRef.current.duration;
+        const currentTime = audioRef.current.currentTime;
+        const progressPercentage = (currentTime / duration) * 100;
+        setProgress(progressPercentage);
+        setCurrentTime(currentTime);
+        setDuration(duration);
+      }
     };
 
     const handleEnded = () => {
-        playNext();
+      playNext();
     };
 
     const audioElement = audioRef.current;
@@ -101,9 +156,6 @@ const CustomAudioPlayer = ( { playlist } ) => {
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   };
 
-  if (!playlist.songs || playlist.songs.length === 0) {
-    return <div className="text-white">No hay canciones cargadas.</div>;
-  }
 
   return (
     <div className='w-4/5 h-2/5 bg-[#6d58a5] bg-opacity-[0.7] p-4 rounded-md flex flex-row space-x-6 justify-center text-white'>
