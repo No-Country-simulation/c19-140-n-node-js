@@ -7,8 +7,7 @@ export default function List( { playlist } ) {
   const [items, setItems] = useState(playlist.songs || []);
 
   const deleteSong = async (songId) => {
-    //const adminPassword = prompt("Enter admin password to delete the song:");
-    const adminPassword = 'securepassword';
+    const adminPassword = prompt("Enter admin password to delete the song:");
     if (!adminPassword) return;
 
     try {
