@@ -4,6 +4,7 @@ import Background from "@/components/Background.jsx";
 
 import { useState } from "react"; // Importar useState desde React
 
+
 import Image from "next/image";
 import Link from "next/link";
 export default function Home() {
@@ -24,19 +25,19 @@ export default function Home() {
    const showMenu = () => setVisibleForm('menu');
    return (
       <main className="relative h-screen">
-         <Background src={`/bgPrincipal.jpg`} />
+         <Background src="/bgPrincipal.jpg" />
          <div className="absolute top-0 left-0 w-full h-full">
-            
-            
-            <div className="absolute top-0 right-0 h-full w-[42%] bg-white bg-opacity-80 flex items-center justify-center">
-               <div className="text-center px-4 py-8">
-                  {/* Logo fijo */}
-                  <Image src="/MusiQ.png" alt="Logo" width={200} height={100} className="mx-auto" priority />
+            <div className="absolute top-0 right-0 h-full w-[42%] bg-white bg-opacity-80 flex flex-col items-center py-12">
+               {/* Contenedor para centrar el logo */}
+               <div className="mb-8"> {/* Ajusta el margen inferior para el espacio entre el logo y el contenido */}
+                  <Image src="/MusiQ.png" alt="Logo" width={200} height={100} priority />
+               </div>
 
+               <div className="w-full flex flex-col items-center">
                   {/*------------------------------inicio MEnu----------------------*/}
                   {visibleForm === 'menu' && (
                      <>
-                        <h3 className="text-4xl lg:text-5xl text-[#6d58a5] text-opacity-80">
+                        <h3 className="text-4xl lg:text-5xl text-[#6d58a5] text-opacity-80 text-center">
                            <p className="font-bold">Conéctate</p>
                            <p>a través </p>
                            <p>de la <span className="font-bold text-[#f83a47]">música</span></p>
@@ -46,7 +47,7 @@ export default function Home() {
                            <p>comparte con tus amigos y disfruta de</p>
                            <p>los buenos momentos</p>
                         </h5>
-                        <div className="mt-6 text-left flex gap-14 justify-center">
+                        <div className="mt-6 flex gap-14 justify-center">
                            <button
                               onClick={showCreateForm}
                               className="bg-[#6d58a5] text-white px-4 py-2 rounded-md hover:bg-white hover:text-purple-500 border border-purple-500 transition duration-300"
@@ -61,7 +62,7 @@ export default function Home() {
                            </button>
                         </div>
                         <div className="mt-6 text-left">
-                           <Link href="#" className="text-[#6d58a5] hover:underline"
+                           <Link href="#" className="text-[#6d58a5] hover:underline text-left"
                               onClick={(e) => {
                                  e.preventDefault();
                                  showExistingListForm();
@@ -74,10 +75,8 @@ export default function Home() {
                   {/*------------------------------Fin MEnu----------------------*/}
                   {/*------------------------------inicio Formulario----------------------*/}
                   {visibleForm === 'crear' && (
-
-
-                     <form className="space-y-4 mt-8">
-                        <h3 className="text-4xl lg:text-2xl text-[#6d58a5] text-opacity-80">
+                     <form className="space-y-4 mt-8 w-full max-w-sm">
+                        <h3 className="text-4xl lg:text-3xl text-[#6d58a5] text-opacity-80 text-center">
                            Crear lista
                         </h3>
                         <div>
@@ -99,6 +98,7 @@ export default function Home() {
                               required
                               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                            />
+                           
                         </div>
                         <fieldset>
                            <legend className="text-sm font-medium text-gray-700">Estado de la lista</legend>
@@ -125,26 +125,28 @@ export default function Home() {
                               </div>
                            </div>
                         </fieldset>
-                        <button
-                           type="submit"
-                           className="bg-[#6d58a5] text-white px-4 py-2 rounded-md hover:bg-white hover:text-purple-500 border border-purple-500 transition duration-300 mr-8"
-                        >
-                           Crear lista
-                        </button>
-                        <button
-                           type="button"
-                           onClick={showMenu}
-                           className="bg-[#6d58a5] text-white px-4 py-2 rounded-md hover:bg-white hover:text-purple-500 border border-purple-500 transition duration-300"
-                        >
-                           Volver al inicio
-                        </button>
+                        <div className="flex justify-between mt-4">
+                           <button
+                              type="submit"
+                              className="bg-[#6d58a5] text-white px-4 py-2 rounded-md hover:bg-white hover:text-purple-500 border border-purple-500 transition duration-300"
+                           >
+                              Crear lista
+                           </button>
+                           <button
+                              type="button"
+                              onClick={showMenu}
+                              className="bg-[#6d58a5] text-white px-4 py-2 rounded-md hover:bg-white hover:text-purple-500 border border-purple-500 transition duration-300"
+                           >
+                              Volver al inicio
+                           </button>
+                        </div>
                      </form>
                   )}
                   {/*------------------------------Fin Formulario----------------------*/}
                   {/*------------------------------inicio Formulario Unirse a Lista----------------------*/}
                   {visibleForm === 'unirse' && (
-                     <form className="space-y-4 mt-8">
-                        <h3 className="text-4xl lg:text-2xl text-[#6d58a5] text-opacity-80">
+                     <form className="space-y-4 mt-8 w-full max-w-sm">
+                        <h3 className="text-4xl lg:text-3xl text-[#6d58a5] text-opacity-80 text-center">
                            Unirme a la lista
                         </h3>
                         <div>
@@ -157,26 +159,28 @@ export default function Home() {
                               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                            />
                         </div>
-                        <button
-                           type="submit"
-                           className="bg-[#6d58a5] text-white px-4 py-2 rounded-md hover:bg-white hover:text-purple-500 border border-purple-500 transition duration-300 mr-8"
-                        >
-                           Unirme
-                        </button>
-                        <button
-                           type="button"
-                           onClick={showMenu}
-                           className="bg-[#6d58a5] text-white px-4 py-2 rounded-md hover:bg-white hover:text-purple-500 border border-purple-500 transition duration-300"
-                        >
-                           Volver al inicio
-                        </button>
+                        <div className="flex justify-between mt-4">
+                           <button
+                              type="submit"
+                              className="bg-[#6d58a5] text-white px-4 py-2 rounded-md hover:bg-white hover:text-purple-500 border border-purple-500 transition duration-300 mr-8"
+                           >
+                              Unirme
+                           </button>
+                           <button
+                              type="button"
+                              onClick={showMenu}
+                              className="bg-[#6d58a5] text-white px-4 py-2 rounded-md hover:bg-white hover:text-purple-500 border border-purple-500 transition duration-300"
+                           >
+                              Volver al inicio
+                           </button>
+                        </div>
                      </form>
                   )}
                   {/*------------------------------Fin Formulario Unirse a Lista----------------------*/}
                   {/*------------------------------inicio Formulario Lista Existente----------------------*/}
                   {visibleForm === 'existente' && (
-                     <form className="space-y-4 mt-8">
-                        <h3 className="text-4xl lg:text-3xl text-[#6d58a5] text-opacity-80">
+                     <form className="space-y-4 mt-8 w-full max-w-sm">
+                        <h3 className="text-4xl lg:text-3xl text-[#6d58a5] text-opacity-80 text-center">
                            Ingresar a la lista creada
                         </h3>
                         <div>
@@ -199,19 +203,21 @@ export default function Home() {
                               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                            />
                         </div>
-                        <button
-                           type="submit"
-                           className="bg-[#6d58a5] text-white px-4 py-2 rounded-md hover:bg-white hover:text-purple-500 border border-purple-500 transition duration-300 mr-8"
-                        >
-                           Ingresar
-                        </button>
-                        <button
-                           type="button"
-                           onClick={showMenu}
-                           className="bg-[#6d58a5] text-white px-4 py-2 rounded-md hover:bg-white hover:text-purple-500 border border-purple-500 transition duration-300"
-                        >
-                           Volver al inicio
-                        </button>
+                        <div className="flex justify-between mt-4">
+                           <button
+                              type="submit"
+                              className="bg-[#6d58a5] text-white px-4 py-2 rounded-md hover:bg-white hover:text-purple-500 border border-purple-500 transition duration-300 mr-8"
+                           >
+                              Ingresar
+                           </button>
+                           <button
+                              type="button"
+                              onClick={showMenu}
+                              className="bg-[#6d58a5] text-white px-4 py-2 rounded-md hover:bg-white hover:text-purple-500 border border-purple-500 transition duration-300"
+                           >
+                              Volver al inicio
+                           </button>
+                        </div>
                      </form>
                   )}
                   {/*------------------------------Fin Formulario Lista Existente----------------------*/}
