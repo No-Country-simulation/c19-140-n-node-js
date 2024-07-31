@@ -1,7 +1,7 @@
 'use client'; // Agrega esta línea al principio del archivo
 
 import Background from "@/components/Background.jsx";
-import FondoBlanco from "@/components/FondoBlanco.jsx";
+
 import { useState } from "react"; // Importar useState desde React
 
 import Image from "next/image";
@@ -26,9 +26,9 @@ export default function Home() {
       <main className="relative h-screen">
          <Background src={`/bgPrincipal.jpg`} />
          <div className="absolute top-0 left-0 w-full h-full">
-            <FondoBlanco />
-
-            <div className="absolute top-0 right-0 h-full w-[42%] flex items-center justify-center">
+            
+            
+            <div className="absolute top-0 right-0 h-full w-[42%] bg-white bg-opacity-80 flex items-center justify-center">
                <div className="text-center px-4 py-8">
                   {/* Logo fijo */}
                   <Image src="/MusiQ.png" alt="Logo" width={200} height={100} className="mx-auto" priority />
@@ -127,9 +127,16 @@ export default function Home() {
                         </fieldset>
                         <button
                            type="submit"
-                           className="bg-[#6d58a5] text-white px-4 py-2 rounded-md hover:bg-white hover:text-purple-500 border border-purple-500 transition duration-300"
+                           className="bg-[#6d58a5] text-white px-4 py-2 rounded-md hover:bg-white hover:text-purple-500 border border-purple-500 transition duration-300 mr-8"
                         >
                            Crear lista
+                        </button>
+                        <button
+                           type="button"
+                           onClick={showMenu}
+                           className="bg-[#6d58a5] text-white px-4 py-2 rounded-md hover:bg-white hover:text-purple-500 border border-purple-500 transition duration-300"
+                        >
+                           Volver al inicio
                         </button>
                      </form>
                   )}
@@ -152,9 +159,16 @@ export default function Home() {
                         </div>
                         <button
                            type="submit"
-                           className="bg-[#6d58a5] text-white px-4 py-2 rounded-md hover:bg-white hover:text-purple-500 border border-purple-500 transition duration-300"
+                           className="bg-[#6d58a5] text-white px-4 py-2 rounded-md hover:bg-white hover:text-purple-500 border border-purple-500 transition duration-300 mr-8"
                         >
                            Unirme
+                        </button>
+                        <button
+                           type="button"
+                           onClick={showMenu}
+                           className="bg-[#6d58a5] text-white px-4 py-2 rounded-md hover:bg-white hover:text-purple-500 border border-purple-500 transition duration-300"
+                        >
+                           Volver al inicio
                         </button>
                      </form>
                   )}
@@ -187,9 +201,16 @@ export default function Home() {
                         </div>
                         <button
                            type="submit"
-                           className="bg-[#6d58a5] text-white px-4 py-2 rounded-md hover:bg-white hover:text-purple-500 border border-purple-500 transition duration-300"
+                           className="bg-[#6d58a5] text-white px-4 py-2 rounded-md hover:bg-white hover:text-purple-500 border border-purple-500 transition duration-300 mr-8"
                         >
                            Ingresar
+                        </button>
+                        <button
+                           type="button"
+                           onClick={showMenu}
+                           className="bg-[#6d58a5] text-white px-4 py-2 rounded-md hover:bg-white hover:text-purple-500 border border-purple-500 transition duration-300"
+                        >
+                           Volver al inicio
                         </button>
                      </form>
                   )}
