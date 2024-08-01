@@ -1,8 +1,11 @@
+
 "use client";
+
 
 import Background from "@/components/Background.jsx";
 
 import { useState } from "react"; // Importar useState desde React
+
 
 import Image from "next/image";
 import Link from "next/link";
@@ -10,6 +13,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
+
   // Estado para controlar qué formulario se debe mostrar
   const [visibleForm, setVisibleForm] = useState("menu"); // Puede ser 'menu', 'crear', 'unirse', 'existente'
 
@@ -281,4 +285,5 @@ export default function Home() {
       </div>
     </main>
   );
+
 }

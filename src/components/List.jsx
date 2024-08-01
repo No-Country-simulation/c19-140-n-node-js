@@ -42,7 +42,6 @@ export default function List({ playlist }) {
 
   const deleteSong = async (songId) => {
     const adminPassword = prompt("Enter admin password to delete the song:");
-    
     if (!adminPassword) return;
 
     try {
