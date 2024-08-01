@@ -26,6 +26,7 @@ export default function Background({ src }) {
                   onLoadingComplete={() => setImageLoaded(true)}
                />
             </motion.div>
+            
          </div>
       </div>
    );

@@ -1,4 +1,6 @@
+
 "use client";
+
 
 import Background from "@/components/Background.jsx";
 
@@ -10,6 +12,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
+
   // Estado para controlar qué formulario se debe mostrar
   const [visibleForm, setVisibleForm] = useState("menu"); // Puede ser 'menu', 'crear', 'unirse', 'existente'
 
@@ -281,4 +284,5 @@ export default function Home() {
       </div>
     </main>
   );
+
 }
