@@ -82,7 +82,7 @@ export default function ListPage() {
                 <Search code={code} />
               </div>
 
-              <div className="w-2/4 h-full flex items-center z-10">
+              <div className="w-2/4 h-full flex items-center">
                 <List playlist={playlist} />
               </div>
             </>
