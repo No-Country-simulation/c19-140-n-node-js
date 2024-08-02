@@ -5,7 +5,7 @@ const SharePopup = ({ isOpen, onClose, listCode, listUrl }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-start pl-96 pt-32">
       <div className="bg-[#140933] bg-opacity-90 p-6 rounded-lg shadow-lg max-w-md w-full text-white">
         <h2 className="text-2xl font-bold mb-8 text-center text-[#6d58a5]">Compartir Lista</h2>
         <div className="flex flex-col md:flex-row items-center justify-around mb-4">
