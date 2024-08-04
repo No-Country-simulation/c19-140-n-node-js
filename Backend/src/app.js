@@ -52,18 +52,7 @@ app.use(express.urlencoded({ extended: true })); // Parse URL-encoded requests
 app.use(compression({})); // Enable response compression
 
 // Cors //
-app.use(
-  cors({
-    origin: 'http://localhost:3000', // Allow only these origins to access the resources
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE", // Allow these HTTP methods
-    credentials: true, // Allow credentials to be included in the requests
-  })
-);
-//app.use(cors()); // Allow all origins
-
-// // Caching //
-// const cache = apicache.middleware;
-// app.use(cache('6 hours')); 
+app.use(cors());
 
 // Routers //
 app.use("/api/list/", router);

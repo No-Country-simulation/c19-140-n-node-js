@@ -56,7 +56,7 @@ MusiQ es una aplicación web diseñada para simplificar el proceso de solicitar 
 | Valentín Ballesteros | Dev FullStack  |
 | Micaela Hormazabal   | Dev Frontend   |
 | Cristian Ortega      | Dev Frontend   |
-| Milagros             | Diseñadora     |
+| Milagros Chuctaya Elme | Diseñadora     |
 
 ## Licencia
 
